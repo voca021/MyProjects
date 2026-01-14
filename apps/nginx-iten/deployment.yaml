@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-iten
+  namespace: flux-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-iten
+  template:
+    metadata:
+      labels:
+        app: nginx-iten
+    spec:
+      containers:
+        - name: nginx
+          image: vladafratric/nginx-flux:1.0.0
+          ports:
+            - containerPort: 80
+
